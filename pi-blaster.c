@@ -38,6 +38,18 @@ static char VERSION[] = "0.1.0";
 
 // Created new known_pins with raspberry pi list of pins
 // to compare against the param received.
+#if defined RPI_TANK_PINS
+static uint8_t known_pins[] = {
+        7,      // P1-26
+        8,      // P1-24
+        9,      // P1-21
+        10,     // P1-19
+        11,     // P1-23
+        23,     // P1-16 for v1
+        24,     // P1-18 for v1
+        25,     // P1-22
+};
+#else
 static uint8_t known_pins[] = {
         4,      // P1-7
         17,     // P1-11
@@ -52,6 +64,7 @@ static uint8_t known_pins[] = {
         24,     // P1-18
         25,     // P1-22
 };
+#endif
 
 // pin2gpio array is not setup as empty to avoid locking all GPIO
 // inputs as PWM, they are set on the fly by the pin param passed.

@@ -3,6 +3,9 @@ all:	pi-blaster
 
 REVISION=$(shell egrep -q '000f$$' /proc/cpuinfo && echo 2 || echo 1)
 
+tank: pi-blaster.c
+	gcc -Wall -g -O2 -o $@ $< -DRPI_TANK_PINS
+
 pi-blaster:	pi-blaster.c
 	gcc -Wall -g -O2 -o $@ $< -DREVISION=$(REVISION)
 
