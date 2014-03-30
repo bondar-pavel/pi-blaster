@@ -1,0 +1,8 @@
+[Unit]
+Description="Daemon for PWM control of the Raspberry PI GPIO pins"
+
+[Service]
+ExecStart=/usr/sbin/pi-blaster
+
+[Install]
+WantedBy=multi-user.target
